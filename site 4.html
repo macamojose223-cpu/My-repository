@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Educação e Futuro</title>
+    <style>
+        body {
+            font-family: Verdana;
+            background-color: #fdfdfd;
+            margin: 0;
+        }
+
+        header {
+            background-color: #3366cc;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background-color: #003366;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+        }
+
+        .menu a:hover {
+            background-color: #004c99;
+            border-radius: 5px;
+        }
+
+        .pesquisa {
+            display: flex;
+            gap: 5px;
+        }
+
+        input[type="text"] {
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #004c99;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003366;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 25px;
+            background-color: #eef4ff;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        h2 {
+            color: #003366;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        img {
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #3366cc;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        mark {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Educação e Futuro</h1>
+        <p>A importância da educação para o desenvolvimento das pessoas e do mundo.</p>
+    </header>
+
+    <nav>
+        <div class="menu">
+            <a href="#importancia">Importância</a>
+            <a href="#tecnologia">Tecnologia</a>
+            <a href="#motivacao">Motivação</a>
+        </div>
+
+        <div class="pesquisa">
+            <input type="text" id="pesquisa" placeholder="Pesquisar...">
+            <button onclick="pesquisar()">Pesquisar</button>
+        </div>
+    </nav>
+
+    <main id="conteudo">
+        <section id="importancia">
+            <h2>Importância da Educação</h2>
+            <p>
+                A educação é o caminho para um futuro melhor. É através dela que as pessoas
+                aprendem a pensar, criar e resolver problemas. Um país que investe em educação
+                garante progresso e mais oportunidades para todos.
+            </p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Children_studying_in_classroom.jpg" width="300">
+        </section>
+
+        <section id="tecnologia">
+            <h2>Educação e Tecnologia</h2>
+            <p>
+                Hoje em dia, a tecnologia faz parte das escolas e ajuda no processo de ensino.
+                Computadores, internet e ferramentas digitais facilitam a aprendizagem e deixam
+                as aulas mais interessantes.
+            </p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Laptop_classroom.jpg" width="300">
+        </section>
+
+        <section id="motivacao">
+            <h2>Motivação dos Estudantes</h2>
+            <p>
+                Para estudar bem, é importante ter motivação. Sonhar com o futuro, querer aprender
+                algo novo e ter apoio dos professores e da família faz muita diferença no sucesso
+                dos alunos.
+            </p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Happy_students.jpg" width="300">
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Educação e Futuro</p>
+    </footer>
+
+    <script>
+        function pesquisar() {
+            const termo = document.getElementById("pesquisa").value.toLowerCase();
+            const conteudo = document.getElementById("conteudo");
+            const texto = conteudo.innerHTML.replace(/<mark>/g, '').replace(/<\/mark>/g, '');
+            
+            if (termo.trim() === "") {
+                conteudo.innerHTML = texto;
+                return;
+            }
+
+            const regex = new RegExp(termo, "gi");
+            const novoTexto = texto.replace(regex, (match) => `<mark>${match}</mark>`);
+            conteudo.innerHTML = novoTexto;
+        }
+    </script>
+
+</body>
+</html>
